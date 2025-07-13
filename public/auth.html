@@ -14,7 +14,34 @@
     />
   </head>
   <body>
-    <div data-component="navbar"></div>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="/">
+          <i class="fas fa-paper-plane"></i>
+          <span>API Contact</span>
+        </a>
+      </div>
+
+      <div class="navbar-links" id="navbar-links">
+        <a href="./documentation.html" class="nav-link">Documentación</a>
+        <a href="./examples.html" class="nav-link">Ejemplos</a>
+        <a href="./security.html" class="nav-link">Seguridad</a>
+
+        <div class="auth-buttons hidden" id="auth-buttons">
+          <a href="./auth.html" class="btn btn-sm">Iniciar sesión</a>
+        </div>
+
+        <div class="user-menu hidden" id="user-menu">
+          <span id="user-greeting"></span>
+          <a href="./dashboard.html" class="btn btn-sm">Panel</a>
+          <button id="logout-btn" class="btn btn-sm btn-outline">Cerrar sesión</button>
+        </div>
+      </div>
+
+      <button class="navbar-toggle" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
 
     <div class="main-content">
       <div class="container">
