@@ -1,0 +1,45 @@
+{
+  "name": "api-contact",
+  "version": "1.0.0",
+  "description": "ApiContact es una API RESTful que permite a cualquier usuario recibir los datos de un formulario de contacto en su email, sin importar dónde esté alojada su landing page. Ideal para páginas estáticas, desarrollos sin backend propio o soluciones simples y rápidas.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArrayagoM/Api-Contact.git"
+  },
+  "keywords": [
+    "form",
+    "email",
+    "contact",
+    "api",
+    "express",
+    "nodemailer",
+    "form-to-email",
+    "landing-page",
+    "contact-form-backend"
+  ],
+  "author": "Juan Martin Arrayago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArrayagoM/Api-Contact/issues"
+  },
+  "homepage": "https://github.com/ArrayagoM/Api-Contact#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.1",
+    "nodemailer": "^6.9.9",
+    "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
