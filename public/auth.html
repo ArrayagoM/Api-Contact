@@ -198,7 +198,7 @@
       async function loadComponent(componentName) {
         const containers = document.querySelectorAll(`[data-component="${componentName}"]`);
         if (!containers.length) return;
-        const res = await fetch(`/components/${componentName}.html`);
+        const res = await fetch(`/${componentName}.html`);
         if (!res.ok) throw new Error(`${componentName}.html no encontrado`);
         const html = await res.text();
         containers.forEach((el) => (el.innerHTML = html));
@@ -277,7 +277,7 @@
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         if (window.appState?.token && window.appState?.user) {
-          window.location.href = '../views/dashboard.html';
+          window.location.href = './dashboard.html';
           return;
         }
 
@@ -373,7 +373,7 @@
             localStorage.setItem('apiContactUser', JSON.stringify(responseData.user));
 
             showToast('Éxito', `${successMessage}, ${responseData.user.name}`, 'success');
-            setTimeout(() => (window.location.href = '../views/dashboard.html'), 1500);
+            setTimeout(() => (window.location.href = './dashboard.html'), 1500);
           } else {
             throw new Error(responseData.msg || 'Respuesta inválida del servidor');
           }
