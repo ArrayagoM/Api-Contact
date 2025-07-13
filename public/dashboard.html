@@ -197,7 +197,7 @@
       async function loadComponent(componentName) {
         const containers = document.querySelectorAll(`[data-component="${componentName}"]`);
         if (!containers.length) return;
-        const res = await fetch(`/components/${componentName}.html`);
+        const res = await fetch(`/${componentName}.html`);
         if (!res.ok) throw new Error(`${componentName}.html no encontrado`);
         const html = await res.text();
         containers.forEach((el) => (el.innerHTML = html));
@@ -291,7 +291,7 @@
               const payload = {};
               new FormData(testForm).forEach((v, k) => (payload[k] = v));
 
-              const resp = await fetch(`/form/${window.appState.user.formSlug}`, {
+              const resp = await fetch(`/${window.appState.user.formSlug}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),

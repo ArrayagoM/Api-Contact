@@ -139,13 +139,13 @@
           <h3>Recursos</h3>
           <ul class="footer-links">
             <li>
-              <a href="../views/documentation.html"><i class="fas fa-book"></i> Documentación</a>
+              <a href="./documentation.html"><i class="fas fa-book"></i> Documentación</a>
             </li>
             <li>
-              <a href="../views/examples.html"><i class="fas fa-code"></i> Ejemplos</a>
+              <a href="./examples.html"><i class="fas fa-code"></i> Ejemplos</a>
             </li>
             <li>
-              <a href="../views/security.html"><i class="fas fa-shield-alt"></i> Seguridad</a>
+              <a href="./security.html"><i class="fas fa-shield-alt"></i> Seguridad</a>
             </li>
           </ul>
         </div>
@@ -171,7 +171,7 @@
 
     <div id="toast-container"></div>
 
-    <script >
+    <script>
       window.appState = {
         token: localStorage.getItem('apiContactToken'),
         user: JSON.parse(localStorage.getItem('apiContactUser')),
@@ -180,7 +180,7 @@
       async function loadComponent(componentName) {
         const containers = document.querySelectorAll(`[data-component="${componentName}"]`);
         if (!containers.length) return;
-        const res = await fetch(`/components/${componentName}.html`);
+        const res = await fetch(`/${componentName}.html`);
         if (!res.ok) throw new Error(`${componentName}.html no encontrado`);
         const html = await res.text();
         containers.forEach((el) => (el.innerHTML = html));
@@ -245,7 +245,9 @@
           <span class="toast-close">&times;</span>
         `;
 
-        toast.querySelector('.toast-close').addEventListener('click', () => container.removeChild(toast));
+        toast
+          .querySelector('.toast-close')
+          .addEventListener('click', () => container.removeChild(toast));
 
         container.appendChild(toast);
         setTimeout(() => {
