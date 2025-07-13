@@ -8,11 +8,12 @@
     { "src": "/(.*\\.(js|css|png|jpg|svg|ico))", "dest": "/public/$1" },
 
     { "src": "/", "dest": "/public/index.html" },
-    { "src": "/", "dest": "/public/components/navbar.html" },
-    { "src": "/", "dest": "/public/components/footer.html" },
-
     { "src": "/auth.html", "dest": "/public/auth.html" },
-    { "src": "/dashboard.html", "dest": "/public/views/dashboard.html" },
+    { "src": "/dashboard.html", "dest": "/public/dashboard.html" },
+    { "src": "/dashboard.html", "dest": "/public/documentation.html" },
+    { "src": "/dashboard.html", "dest": "/public/examples.html" },
+    { "src": "/dashboard.html", "dest": "/public/security.html" },
+    { "src": "/dashboard.html", "dest": "/public/home.html" },
 
     { "src": "^/api/(.*)$", "dest": "api/index.js" },
     { "src": "^/form/(.*)$", "dest": "api/index.js" }
