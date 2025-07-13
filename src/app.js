@@ -12,8 +12,8 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Rutas de API
 app.use('/api', authRoutes);
 app.use('/form', formRoutes);
 
