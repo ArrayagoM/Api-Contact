@@ -4,5 +4,14 @@
     { "src": "api/**/*.js", "use": "@vercel/node" },
     { "src": "public/**/*", "use": "@vercel/static" }
   ],
-  "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "api/index.js" }]
+  "routes": [
+    { "src": "/(.*\\.(js|css|png|jpg|svg|ico))", "dest": "/public/$1" },
+
+    { "src": "/", "dest": "/public/index.html" },
+    { "src": "/auth.html", "dest": "/public/auth.html" },
+    { "src": "/dashboard.html", "dest": "/public/dashboard.html" },
+
+    { "src": "^/api/(.*)$", "dest": "api/index.js" },
+    { "src": "^/form/(.*)$", "dest": "api/index.js" }
+  ]
 }
