@@ -1,14 +1,16 @@
 {
+  "version": 2,
   "builds": [
-    {
-      "src": "./index.js",
-      "use": "@vercel/node"
-    }
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "public/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+    { "src": "/(.*\\.(?:js|css|png|jpg|svg|ico))", "dest": "/public/$1" },
+
+    { "src": "^/$", "dest": "/public/index.html" },
+    { "src": "^/auth(?:\\.html)?$", "dest": "/public/auth.html" },
+    { "src": "^/dashboard(?:\\.html)?$", "dest": "/public/views/dashboard.html" },
+
+    { "src": "^/(api|form)(.*)$", "dest": "api/index.js" }
   ]
 }
