@@ -1,8 +1,8 @@
-// src/app.js
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+
 const authRoutes = require('./routes/authRoutes');
 const formRoutes = require('./routes/formRoutes');
 
@@ -13,9 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../public')));
-
-// Rutas API
+// Rutas de API
 app.use('/api', authRoutes);
 app.use('/form', formRoutes);
 
