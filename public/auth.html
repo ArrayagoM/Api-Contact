@@ -324,7 +324,7 @@
         if (registerForm) {
           registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            await handleAuthSubmit(e.target, '/api/register', 'Registro exitoso');
+            await handleAuthSubmit(e.target, 'https://api-contact-one.vercel.app/api/register', 'Registro exitoso');
           });
         }
 
@@ -332,7 +332,7 @@
         if (loginForm) {
           loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            await handleAuthSubmit(e.target, '/api/login', 'Bienvenido');
+            await handleAuthSubmit(e.target, 'https://api-contact-one.vercel.app/api/login', 'Bienvenido');
           });
         }
       });

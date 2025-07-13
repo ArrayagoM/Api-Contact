@@ -56,7 +56,7 @@
               <button class="copy-btn"><i class="far fa-copy"></i> Copiar</button>
             </div>
             <pre><code>&lt;!-- Formulario de contacto básico --&gt;
-&lt;form action="https://api.tudominio.com/form/tu-slug" method="POST"&gt;
+&lt;form action="https://api-contact-one.vercel.app/form/tu-slug" method="POST"&gt;
   &lt;input type="text" name="nombre" placeholder="Nombre" required&gt;
   &lt;input type="email" name="email" placeholder="Email" required&gt;
   &lt;textarea name="mensaje" placeholder="Mensaje" required&gt;&lt;/textarea&gt;
@@ -74,7 +74,7 @@
               <span>HTML</span>
               <button class="copy-btn"><i class="far fa-copy"></i> Copiar</button>
             </div>
-            <pre><code>&lt;form action="https://api.tudominio.com/form/tu-slug" method="POST"&gt;
+            <pre><code>&lt;form action="https://api-contact-one.vercel.app/form/tu-slug" method="POST"&gt;
   &lt;div class="form-group"&gt;
     &lt;label for="nombre"&gt;Nombre completo&lt;/label&gt;
     &lt;input type="text" id="nombre" name="nombre_completo" required&gt;
@@ -133,7 +133,7 @@
     formMessage.style.color = 'inherit';
     
     try {
-      const response = await fetch('https://api.tudominio.com/form/tu-slug', {
+      const response = await fetch('https://api-contact-one.vercel.app/form/tu-slug', {
         method: 'POST',
         body: formData
       });
