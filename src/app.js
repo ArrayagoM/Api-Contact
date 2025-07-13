@@ -20,7 +20,7 @@ app.use('/api', authRoutes);
 app.use('/form', formRoutes);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..public/views', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 app.use((err, req, res, next) => {
