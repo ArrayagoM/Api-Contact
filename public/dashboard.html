@@ -197,7 +197,7 @@
       async function loadComponent(componentName) {
         const containers = document.querySelectorAll(`[data-component="${componentName}"]`);
         if (!containers.length) return;
-        const res = await fetch(`/${componentName}.html`);
+        const res = await fetch(`https://api-contact-one.vercel.app/${componentName}.html`);
         if (!res.ok) throw new Error(`${componentName}.html no encontrado`);
         const html = await res.text();
         containers.forEach((el) => (el.innerHTML = html));
@@ -271,8 +271,50 @@
           if (container.contains(toast)) container.removeChild(toast);
         }, duration);
       }
-      // ---------------------------------------------
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+        const token = localStorage.getItem('apiContactToken');
+
+        if (!token) {
+          console.warn('No hay token, no se puede obtener la info del usuario');
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            'https://api-contact-git-main-teamsgamers.vercel.app/api/user/info',
+            {
+              method: 'GET',
+              headers: {
+                'x-auth-token': token,
+              },
+            }
+          );
+
+          if (!res.ok) {
+            const err = await res.json();
+            console.error('Error:', err.msg);
+            showToast('Error', err.msg || 'No se pudo cargar la info del usuario', 'error');
+            return;
+          }
+
+          const user = await res.json();
+
+          // Rellenamos los datos en el DOM
+          document.getElementById('user-name').textContent = user.name || 'Sin nombre';
+          document.getElementById('user-email').textContent = user.email || 'Sin email';
+          document.getElementById(
+            'user-endpoint'
+          ).textContent = `https://api-contact-one.vercel.app/form/${user.formSlug}`;
+          document.getElementById('slug-display').textContent = user.formSlug;
+        } catch (err) {
+          console.error('Error de conexión:', err);
+          showToast('Error', 'No se pudo conectar con el servidor', 'error');
+        }
+      });
+    </script>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const testForm = document.getElementById('test-form');

@@ -225,7 +225,7 @@
       async function loadComponent(componentName) {
         const containers = document.querySelectorAll(`[data-component="${componentName}"]`);
         if (!containers.length) return;
-        const res = await fetch(`/${componentName}.html`);
+        const res = await fetch(`https://api-contact-one.vercel.app/${componentName}.html`);
         if (!res.ok) throw new Error(`${componentName}.html no encontrado`);
         const html = await res.text();
         containers.forEach((el) => (el.innerHTML = html));
@@ -324,7 +324,11 @@
         if (registerForm) {
           registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            await handleAuthSubmit(e.target, 'https://api-contact-one.vercel.app/api/register', 'Registro exitoso');
+            await handleAuthSubmit(
+              e.target,
+              'https://api-contact-one.vercel.app/api/register',
+              'Registro exitoso'
+            );
           });
         }
 
@@ -332,7 +336,11 @@
         if (loginForm) {
           loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            await handleAuthSubmit(e.target, 'https://api-contact-one.vercel.app/api/login', 'Bienvenido');
+            await handleAuthSubmit(
+              e.target,
+              'https://api-contact-one.vercel.app/api/login',
+              'Bienvenido'
+            );
           });
         }
       });
