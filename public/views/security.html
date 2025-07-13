@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Contact | Seguridad y Privacidad</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <div data-component="navbar"></div>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="dashboard-header fade-in">
+          <h1><i class="fas fa-shield-alt"></i> Seguridad y Privacidad</h1>
+          <p>Tu seguridad y privacidad son nuestra prioridad.</p>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.1s">
+          <h2><i class="fas fa-lock"></i> Protección de Datos</h2>
+          <p>
+            API Contact está diseñado con los más altos estándares de seguridad para proteger tu
+            información y la de tus usuarios.
+          </p>
+
+          <div class="steps mt-4">
+            <div class="step">
+              <div class="step-number"><i class="fas fa-key"></i></div>
+              <div class="step-content">
+                <h3>Encriptación</h3>
+                <p>
+                  Todas las comunicaciones se realizan a través de HTTPS, garantizando que los datos
+                  estén encriptados durante la transmisión.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number"><i class="fas fa-database"></i></div>
+              <div class="step-content">
+                <h3>Minimización de Datos</h3>
+                <p>
+                  Solo almacenamos la información esencial para el funcionamiento del servicio
+                  (email, contraseña encriptada y slug).
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number"><i class="fas fa-ban"></i></div>
+              <div class="step-content">
+                <h3>Sin Almacenamiento de Formularios</h3>
+                <p>
+                  Los datos de los formularios NO se almacenan en nuestros servidores, solo se
+                  envían por email al destinatario.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.2s">
+          <h2><i class="fas fa-user-secret"></i> Privacidad</h2>
+
+          <div class="user-info-card">
+            <div class="info-row">
+              <span class="info-label">Datos Almacenados:</span>
+              <span class="info-value">Email, contraseña (encriptada) y slug único</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Datos NO Almacenados:</span>
+              <span class="info-value">Contenido de los formularios enviados</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Encriptación:</span>
+              <span class="info-value">Todas las contraseñas se almacenan con hash bcrypt</span>
+            </div>
+          </div>
+
+          <p class="mt-3">
+            Los datos de los formularios que recibes pasan directamente por nuestros servidores sin
+            ser almacenados, solo actuamos como intermediarios para enviar la información a tu
+            email.
+          </p>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.3s">
+          <h2><i class="fas fa-tools"></i> Medidas de Seguridad</h2>
+
+          <div class="faq-item mt-3">
+            <div class="faq-question">
+              <span>Protección contra spam y abuso</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Hemos implementado varias capas de protección:</p>
+              <ul class="mt-2">
+                <li><strong>Rate limiting:</strong> Límite de envíos por minuto/hora</li>
+                <li>
+                  <strong>Validación de dominios:</strong> Opcionalmente puedes restringir qué
+                  dominios pueden usar tu endpoint
+                </li>
+                <li>
+                  <strong>Slug único:</strong> Tu identificador personalizado es difícil de adivinar
+                </li>
+                <li><strong>Autenticación JWT:</strong> Para operaciones sensibles</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item mt-2">
+            <div class="faq-question">
+              <span>¿Qué hacer si mi endpoint es comprometido?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Si sospechas que tu endpoint está siendo usado maliciosamente:</p>
+              <ol class="mt-2">
+                <li>Cambia tu slug desde el panel de usuario</li>
+                <li>Habilita la validación por dominio si no lo has hecho</li>
+                <li>Contacta a nuestro equipo de soporte para análisis adicional</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-component="footer"></div>
+
+    <div id="toast-container"></div>
+
+    <script src="/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach((item) => {
+          const question = item.querySelector('.faq-question');
+          question.addEventListener('click', () => {
+            item.classList.toggle('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

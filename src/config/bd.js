@@ -2,18 +2,14 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const dbURI = process.env.URL_DEPLOY;
-    if (!dbURI) {
-      throw new Error('MongoDB URI is not defined in environment variables');
-    }
-
-    console.log('Intentando conectar a MongoDB en:', dbURI);
-
-    await mongoose.connect(dbURI);
-
-    console.log('MongoDB conectado');
-  } catch (err) {
-    console.error('Error conectando a MongoDB:', err.message);
+    await mongoose.connect(process.env.URL_DEPLOY, {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+    });
+    console.log('Conexión a MongoDB exitosa');
+  } catch (error) {
+    console.error('Error al conectar con la base de datos:', error);
     process.exit(1);
   }
 };

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Contact | Documentación</title>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        color: #212529;
+        background-color: #f5f7ff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1 !important;
+      }
+
+      .main-content {
+        opacity: 1 !important;
+        animation: none !important;
+      }
+
+      [data-component] {
+        display: none;
+      }
+
+      body.loaded [data-component] {
+        display: block;
+      }
+    </style>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+  <body>
+    <div data-component="navbar"></div>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="dashboard-header fade-in">
+          <h1><i class="fas fa-book"></i> Documentación</h1>
+          <p>Guía completa para integrar y usar API Contact en tus proyectos.</p>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.1s">
+          <h2><i class="fas fa-info-circle"></i> Introducción</h2>
+          <p>
+            API Contact es un servicio que te permite recibir los datos de formularios de contacto
+            directamente en tu email, sin necesidad de configurar un backend complejo.
+          </p>
+
+          <div class="steps mt-4">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Registro</h3>
+                <p>
+                  Crea una cuenta con tu email y elige un identificador único (slug) que usarás para
+                  recibir tus formularios.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Integración</h3>
+                <p>
+                  Modifica el atributo "action" de tu formulario HTML para que apunte a nuestro
+                  endpoint con tu slug personalizado.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Recepción</h3>
+                <p>
+                  Cuando alguien complete tu formulario, los datos llegarán directamente a tu
+                  bandeja de entrada.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.2s">
+          <h2><i class="fas fa-code"></i> Endpoints</h2>
+
+          <div class="code-example mt-3">
+            <div class="code-header">
+              <span>Endpoint de Formulario</span>
+            </div>
+            <pre><code>POST /form/:formSlug</code></pre>
+            <p class="mt-2">
+              Este es el endpoint principal al que debes enviar tus formularios. Reemplaza
+              <code>:formSlug</code> con tu identificador único.
+            </p>
+          </div>
+
+          <div class="code-example mt-3">
+            <div class="code-header">
+              <span>Ejemplo de Formulario HTML</span>
+              <button class="copy-btn"><i class="far fa-copy"></i> Copiar</button>
+            </div>
+            <pre><code>&lt;form action="https://api.tudominio.com/form/tu-slug" method="POST"&gt;
+  &lt;input type="text" name="nombre" placeholder="Nombre" required&gt;
+  &lt;input type="email" name="email" placeholder="Email" required&gt;
+  &lt;textarea name="mensaje" placeholder="Mensaje" required&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="dashboard-card fade-in" style="animation-delay: 0.3s">
+          <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
+
+          <div class="faq-item mt-3">
+            <div class="faq-question">
+              <span>¿Qué datos se almacenan en los servidores?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>API Contact está diseñado con la privacidad en mente. Solo almacenamos:</p>
+              <ul class="mt-2">
+                <li>Tu email (para enviarte los formularios)</li>
+                <li>Tu contraseña (encriptada)</li>
+                <li>Tu slug único</li>
+              </ul>
+              <p class="mt-2">
+                Los datos de los formularios que recibes NO se almacenan en nuestros servidores,
+                solo se envían por email.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item mt-2">
+            <div class="faq-question">
+              <span>¿Puedo personalizar los campos del formulario?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Sí, puedes agregar cualquier campo adicional que necesites. Todos los datos del
+                formulario serán incluidos en el email.
+              </p>
+              <div class="code-example mt-2">
+                <pre><code>&lt;form action="https://api.tudominio.com/form/tu-slug" method="POST"&gt;
+  &lt;input type="text" name="nombre_completo" placeholder="Nombre completo"&gt;
+  &lt;input type="tel" name="telefono" placeholder="Teléfono"&gt;
+  &lt;select name="asunto"&gt;
+    &lt;option value="consulta"&gt;Consulta general&lt;/option&gt;
+    &lt;option value="soporte"&gt;Soporte técnico&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;textarea name="mensaje"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-component="footer"></div>
+
+    <div id="toast-container"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('loaded');
+
+        Promise.all([loadComponent('navbar'), loadComponent('footer')]).catch((error) => {
+          console.error('Error loading components:', error);
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach((item) => {
+          const question = item.querySelector('.faq-question');
+          question.addEventListener('click', () => {
+            item.classList.toggle('active');
+          });
+        });
+
+        document.querySelectorAll('.copy-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const code = btn.closest('.code-example').querySelector('pre').textContent;
+            navigator.clipboard.writeText(code.trim()).then(() => {
+              const toast = document.createElement('div');
+              toast.className = 'toast success';
+              toast.innerHTML = `
+              <i class="fas fa-check-circle"></i>
+              <div class="toast-content">
+                <div class="toast-title">¡Copiado!</div>
+                <div class="toast-message">El código se ha copiado al portapapeles</div>
+              </div>
+            `;
+              document.getElementById('toast-container').appendChild(toast);
+              setTimeout(() => toast.remove(), 3000);
+            });
+          });
+        });
+      });
+
+      function loadComponent(componentName) {
+        return new Promise((resolve, reject) => {
+          const component = document.querySelector(`[data-component="${componentName}"]`);
+          if (!component) {
+            reject(`Component ${componentName} not found`);
+            return;
+          }
+
+          setTimeout(() => {
+            component.innerHTML = `<div class="temp-${componentName}">${componentName} loaded</div>`;
+            resolve();
+          }, 100);
+        });
+      }
+    </script>
+    <script src="../js/main.js" defer></script>
+  </body>
+</html>
