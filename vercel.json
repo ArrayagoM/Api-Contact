@@ -11,7 +11,7 @@
     { "src": "/", "dest": "/public/components/navbar.html" },
     { "src": "/", "dest": "/public/components/footer.html" },
 
-    { "src": "/auth.html", "dest": "/public/views/auth.html" },
+    { "src": "/auth.html", "dest": "/public/auth.html" },
     { "src": "/dashboard.html", "dest": "/public/views/dashboard.html" },
 
     { "src": "^/api/(.*)$", "dest": "api/index.js" },
