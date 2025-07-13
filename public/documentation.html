@@ -37,7 +37,34 @@
     <link rel="stylesheet" href="/css/dashboard.css" />
   </head>
   <body>
-    <div data-component="navbar"></div>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="/">
+          <i class="fas fa-paper-plane"></i>
+          <span>API Contact</span>
+        </a>
+      </div>
+
+      <div class="navbar-links" id="navbar-links">
+        <a href="./documentation.html" class="nav-link">Documentación</a>
+        <a href="./examples.html" class="nav-link">Ejemplos</a>
+        <a href="./security.html" class="nav-link">Seguridad</a>
+
+        <div class="auth-buttons hidden" id="auth-buttons">
+          <a href="./auth.html" class="btn btn-sm">Iniciar sesión</a>
+        </div>
+
+        <div class="user-menu hidden" id="user-menu">
+          <span id="user-greeting"></span>
+          <a href="./dashboard.html" class="btn btn-sm">Panel</a>
+          <button id="logout-btn" class="btn btn-sm btn-outline">Cerrar sesión</button>
+        </div>
+      </div>
+
+      <button class="navbar-toggle" id="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
 
     <div class="main-content">
       <div class="container">
@@ -167,7 +194,50 @@
       </div>
     </div>
 
-    <div data-component="footer"></div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>API Contact</h3>
+          <p>La solución más simple para recibir formularios de contacto en tu email.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Recursos</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="../views/documentation.html"><i class="fas fa-book"></i> Documentación</a>
+            </li>
+            <li>
+              <a href="../views/examples.html"><i class="fas fa-code"></i> Ejemplos</a>
+            </li>
+            <li>
+              <a href="../views/security.html"><i class="fas fa-shield-alt"></i> Seguridad</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="#"><i class="fas fa-file-contract"></i> Términos</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-lock"></i> Privacidad</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cookie-bite"></i> Cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 API Contact. Licencia MIT.</p>
+      </div>
+    </footer>
 
     <div id="toast-container"></div>
 
