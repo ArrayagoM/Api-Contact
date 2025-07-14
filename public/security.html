@@ -157,17 +157,28 @@
       </div>
     </div>
 
-
     <footer>
       <div class="footer-content">
         <div class="footer-column">
           <h3>API Contact</h3>
           <p>La solución más simple para recibir formularios de contacto en tu email.</p>
+
           <div class="portfolio-link">
             <a href="https://tinchodev.it.com" target="_blank" rel="noopener noreferrer">
               <i class="fas fa-laptop-code"></i> Visita mi Portafolio
             </a>
           </div>
+
+          <div class="donation-link">
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=9GGNX8U373EJ4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-paypal"></i> Apoya mi trabajo
+            </a>
+          </div>
+
           <div class="social-links">
             <a href="https://github.com/ArrayagoM" aria-label="GitHub"
               ><i class="fab fa-github"></i
@@ -177,6 +188,7 @@
             </a>
           </div>
         </div>
+
         <div class="footer-column">
           <h3>Recursos</h3>
           <ul class="footer-links">
@@ -191,6 +203,7 @@
             </li>
           </ul>
         </div>
+
         <div class="footer-column">
           <h3>Legal</h3>
           <ul class="footer-links">
@@ -206,6 +219,7 @@
           </ul>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>
           &copy; 2023 API Contact. Licencia MIT. Diseñado con ❤️ por
@@ -213,6 +227,33 @@
         </p>
       </div>
     </footer>
+
+<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+<script>
+PayPal.Donation.Button({
+  env:'production',
+  hosted_button_id:'9GGNX8U373EJ4',
+  image: {
+    src:'https://www.paypalobjects.com/webstatic/en_US/btn/btn_donate_pp_142x27.png',
+    alt:'Donar con PayPal',
+    title:'PayPal - La forma más segura y fácil de pagar en línea',
+  }
+}).render('#donate-button');
+</script>
+
+    <!-- Script de PayPal Donations -->
+    <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+    <script>
+      PayPal.Donation.Button({
+        env: 'production',
+        hosted_button_id: '9GGNX8U373EJ4',
+        image: {
+          src: 'https://pics.paypal.com/00/s/YTdlYjg5YTUtYTljNy00NmQ2LWI5MDUtZTA4N2RiMDc0ZWQz/file.PNG',
+          alt: 'Donate with PayPal button',
+          title: 'PayPal - The safer, easier way to pay online!',
+        },
+      }).render('#donate-button');
+    </script>
 
     <div id="toast-container"></div>
 
