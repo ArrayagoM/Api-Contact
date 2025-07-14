@@ -8,7 +8,7 @@
     <title>API Contact | Panel de Usuario</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/dashboard.css" />
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <nav class="navbar">
@@ -334,11 +334,14 @@
               const payload = {};
               new FormData(testForm).forEach((v, k) => (payload[k] = v));
 
-              const resp = await fetch(`/${window.appState.user.formSlug}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-              });
+              const resp = await fetch(
+                `https://api-contact-one.vercel.app/form/${window.appState.user.formSlug}`,
+                {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(payload),
+                }
+              );
 
               if (resp.ok) {
                 showToast('Éxito', 'Mensaje de prueba enviado correctamente', 'success');
